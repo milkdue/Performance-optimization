@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">保存数据</button>
+    <button id="btn2">读取数据</button>
+    <button id="btn3">删除数据</button>
+    <button id="btn4">清空数据</button>
+
+    <script>
+        let person = {name : 'zhangsan', age : 18};
+        let btn1 = document.getElementById('btn1');
+        let btn2 = document.getElementById('btn2');
+        let btn3 = document.getElementById('btn3');
+        let btn4 = document.getElementById('btn4');
+
+        btn1.onclick = function(){
+            sessionStorage.setItem('personone', JSON.stringify(person));
+        };
+        btn2.onclick = function(){
+            console.log(JSON.parse(sessionStorage.getItem('personone')));
+        };
+        btn3.onclick = function(){
+            sessionStorage.removeItem('personone');
+        };
+        btn4.onclick = function(){
+            sessionStorage.clear();
+        };
+    </script>
+</body>
+</html>
